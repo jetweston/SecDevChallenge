@@ -24,5 +24,8 @@ Ports 0 to 1023 are Well-Known Ports.
 Ports 1024 to 49151 are Registered Ports (often registered by a software developer to designate a particular port for their application)
 Ports 49152 to 65535 are Public Ports.
 
+
+python3 scan.py <host> ; where host is either an IP address or a FQDN.
+
 ### Postconditions
 
