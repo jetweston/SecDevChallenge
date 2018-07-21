@@ -21,7 +21,7 @@ Ports 49152 to 65535 are Public Ports.
    
  - install nmap package: 
  
-    brew install nmap
+   anax:SecDevChallenge joseph$ brew install nmap
 
 - Ansible: 
 
@@ -30,17 +30,19 @@ Ports 49152 to 65535 are Public Ports.
   
   
  - Ansible Inventory: /etc/ansivle/hosts
-    
-    [local]
-    localhost ansible_connection=local
+   
+   - xanax:SecDevChallenge joseph$ more /etc/ansible/hosts
 
-    [webservers]
-    192.168.1.22 ansible_user=root
+   [local]
+   localhost ansible_connection=local
 
-    [gateway]
-    192.168.1.1  ansible_connection=local
+   [webservers]
+   192.168.1.22 ansible_user=root
+
+   [gateway]
+   192.168.1.1  ansible_connection=local
   
-  - Nmap 7.70 ( https://nmap.org )
+ - Nmap 7.70 ( https://nmap.org )
  
     For the sake of brevity we will use 'nmap -F' which scans the top 100 most common ports 
     Use 'nmap -p- ' to scannal all 65535 ports nsise scan.
