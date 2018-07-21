@@ -16,18 +16,20 @@ Ports 49152 to 65535 are Public Ports.
 
 - HomeBrew MacOSX Package Manager:
  - Install Homebrew: 
+ 
    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+   
  - install nmap package: 
+ 
     brew install nmap
 
 - Ansible: 
+
   version 2.3.1.0
   python version = 2.7.13 (default, Dec 18 2016, 07:03:39) [GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)]
   
   
- - Ansible Inventory: 
- 
-    cp file hosts
+ - Ansible Inventory: /etc/ansivle/hosts
     
     [local]
     localhost ansible_connection=local
@@ -38,7 +40,7 @@ Ports 49152 to 65535 are Public Ports.
     [gateway]
     192.168.1.1  ansible_connection=local
   
-  - nmap:
+  - Nmap 7.70 ( https://nmap.org )
  
     For the sake of brevity we will use 'nmap -F' which scans the top 100 most common ports 
     Use 'nmap -p- ' to scannal all 65535 ports nsise scan.
