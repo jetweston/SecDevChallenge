@@ -1,5 +1,5 @@
 ---
-- hosts: local
+- hosts: all
   gather_facts: False
   tasks:
     - name: Run NMAP using Anisible commnd module
