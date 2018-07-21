@@ -19,6 +19,7 @@ Ports 49152 to 65535 are Public Ports.
   python version = 2.7.13 (default, Dec 18 2016, 07:03:39) [GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)]
   
   - nmap:
+  
     For the sake of brevity we will use 'nmap -F' which scans the top 100 most common ports 
     Use 'nmap -p- ' to scannal all 65535 ports nsise scan.
   
