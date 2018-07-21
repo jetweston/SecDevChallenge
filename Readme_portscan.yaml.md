@@ -12,11 +12,13 @@ Ports 49152 to 65535 are Public Ports.
 ### Pre-conditions:
 
 
-- 
+- Operating System: Darwin xanax.local 17.7.0 Darwin Kernel Version 17.7.0: Thu Jun 21 22:53:14 PDT 2018; root:xnu-4570.71.2~1/RELEASE_X86_64 x86_64
+
 - HomeBrew MacOSX Package Manager:
-Install:
- /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  
+ - Install Homebrew: 
+   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ - install nmap package: 
+    brew install nmap
 
 - Ansible: 
   version 2.3.1.0
@@ -37,15 +39,12 @@ Install:
     192.168.1.1  ansible_connection=local
   
   - nmap:
-  
-  
-  
+ 
     For the sake of brevity we will use 'nmap -F' which scans the top 100 most common ports 
     Use 'nmap -p- ' to scannal all 65535 ports nsise scan.
   
   
-  
-  
+ 
   
  ### Execution of the attack
 
