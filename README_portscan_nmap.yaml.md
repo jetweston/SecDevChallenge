@@ -1,6 +1,8 @@
 # SecDevChallenge
 
-## Introduction
+_____
+## Solutions 2. Ansible and NMAP
+______
 
 #### Background
 
@@ -102,12 +104,26 @@ Available nsock engines: epoll poll select
  3. cd SecDevChallenge
 
 
- 4. [SecDevChallenge]$ ansible-playbook portscan.yaml
+ 4. [SecDevChallenge]$ ansible-playbook portscan_nmap.yaml
 
 ```
-joseph@effexor SecDevChallenge]$ ansible-playbook portscan.yaml
+[joseph@effexor SecDevChallenge]$ ansible-playbook portscan_nmap.yaml
 
 PLAY [all] ********************************************************************************************************************
+
+TASK [install required packages] **********************************************************************************************
+ok: [localhost] => (item=[u'nmap', u'python'])
+
+TASK [install the Python package, force upgrade] ******************************************************************************
+ok: [localhost] => (item=pip)
+
+TASK [set_fact] ***************************************************************************************************************
+ok: [localhost]
+
+TASK [debug] ******************************************************************************************************************
+ok: [localhost] => {
+    "date": "20180722165524"
+}
 
 TASK [Run NMAP using Anisible commnd module] **********************************************************************************
 changed: [localhost]
@@ -120,22 +136,22 @@ ok: [localhost] => {
             "nmap",
             "-F",
             "-oN",
-            "/tmp/localhost_scan.txt",
+            "/tmp/SecDevChallenge/scans/localhost.20180722165524",
             "localhost"
         ],
-        "delta": "0:00:00.054745",
-        "end": "2018-07-22 07:07:47.186636",
+        "delta": "0:00:00.040530",
+        "end": "2018-07-22 16:55:25.018615",
         "failed": false,
         "rc": 0,
-        "start": "2018-07-22 07:07:47.131891",
+        "start": "2018-07-22 16:55:24.978085",
         "stderr": "",
         "stderr_lines": [],
-        "stdout": "\nStarting Nmap 6.40 ( http://nmap.org ) at 2018-07-22 07:07 EDT\nNmap scan report for localhost (127.0.0.1)\nHost is up (0.00068s latency).\nOther addresses for localhost (not scanned): 127.0.0.1\nNot shown: 91 closed ports\nPORT      STATE SERVICE\n22/tcp    open  ssh\n25/tcp    open  smtp\n80/tcp    open  http\n88/tcp    open  kerberos-sec\n111/tcp   open  rpcbind\n389/tcp   open  ldap\n631/tcp   open  ipp\n3306/tcp  open  mysql\n10000/tcp open  snet-sensor-mgmt\n\nNmap done: 1 IP address (1 host up) scanned in 0.04 seconds",
+        "stdout": "\nStarting Nmap 6.40 ( http://nmap.org ) at 2018-07-22 16:55 EDT\nNmap scan report for localhost (127.0.0.1)\nHost is up (0.00028s latency).\nOther addresses for localhost (not scanned): 127.0.0.1\nNot shown: 91 closed ports\nPORT      STATE SERVICE\n22/tcp    open  ssh\n25/tcp    open  smtp\n80/tcp    open  http\n88/tcp    open  kerberos-sec\n111/tcp   open  rpcbind\n389/tcp   open  ldap\n631/tcp   open  ipp\n3306/tcp  open  mysql\n10000/tcp open  snet-sensor-mgmt\n\nNmap done: 1 IP address (1 host up) scanned in 0.03 seconds",
         "stdout_lines": [
             "",
-            "Starting Nmap 6.40 ( http://nmap.org ) at 2018-07-22 07:07 EDT",
+            "Starting Nmap 6.40 ( http://nmap.org ) at 2018-07-22 16:55 EDT",
             "Nmap scan report for localhost (127.0.0.1)",
-            "Host is up (0.00068s latency).",
+            "Host is up (0.00028s latency).",
             "Other addresses for localhost (not scanned): 127.0.0.1",
             "Not shown: 91 closed ports",
             "PORT      STATE SERVICE",
@@ -149,13 +165,13 @@ ok: [localhost] => {
             "3306/tcp  open  mysql",
             "10000/tcp open  snet-sensor-mgmt",
             "",
-            "Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds"
+            "Nmap done: 1 IP address (1 host up) scanned in 0.03 seconds"
         ]
     }
 }
 
 PLAY RECAP ********************************************************************************************************************
-localhost                  : ok=2    changed=1    unreachable=0    failed=0  
+localhost                  : ok=6    changed=1    unreachable=0    failed=0   
 
 ```
 
@@ -164,17 +180,17 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 
 ### Post-Implementation-Validation (PIV)
 
-1.  Further to an ansible playbook variable dump to STDOUT, for each host defined in /etc/ansible/hosts an scan output will be produced and stored in  /tmp  in the format __{inventory_hostname}_scan.txt__:
+1.  Further to an ansible playbook variable dump to STDOUT, for each host defined in /etc/ansible/hosts an scan output will be produced and stored in  /tmp  in the format __{inventory_hostname}.{date}__
 
 
-localhost_scan.txt
+  example: __localhost.20180722163030__
+
 ```
-[joseph@effexor SecDevChallenge]$ more /tmp/localhost_scan.txt
-
-# Nmap 6.40 scan initiated Sun Jul 22 07:07:47 2018 as: nmap -F -oN /tmp/localhost_scan.txt localhost
-
+joseph@effexor scans]$ more localhost.20180722163030
+# Nmap 6.40 scan initiated Sun Jul 22 16:30:30 2018 as: nmap -F -oN /tmp/SecDevChallenge/scans/localhost.20180722163030 localho
+st
 Nmap scan report for localhost (127.0.0.1)
-Host is up (0.00068s latency).
+Host is up (0.00027s latency).
 Other addresses for localhost (not scanned): 127.0.0.1
 Not shown: 91 closed ports
 PORT      STATE SERVICE
@@ -188,5 +204,5 @@ PORT      STATE SERVICE
 3306/tcp  open  mysql
 10000/tcp open  snet-sensor-mgmt
 
-# Nmap done at Sun Jul 22 07:07:47 2018 -- 1 IP address (1 host up) scanned in 0.04 seconds
+# Nmap done at Sun Jul 22 16:30:30 2018 -- 1 IP address (1 host up) scanned in 0.02 seconds
 ```
