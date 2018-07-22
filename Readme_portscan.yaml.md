@@ -6,7 +6,7 @@
 
 ### Exploit T1046: Network Service Scanning & Discovery
 
-"Network Service Scanning:	Discovery:	T1046	Adversaries may attempt to get a listing of services running on remote hosts, including those that may be vulnerable
+"Network Service Scanning:      Discovery:      T1046   Adversaries may attempt to get a listing of services running on remote hosts, including those that may be vulnerable
 to remote software exploitation. Methods to acquire this information
 include port scans and vulnerability scans using tools that are brought onto a system " - reference: https://attack.mitre.org/wiki/Main_Page
 
@@ -22,7 +22,7 @@ The Object of this challenge is __automate attack technique T1046__.
 
 In line with the objectives of the challenge I have chosen to deliver a solution based on a combination of __Ansible__ and __bash__ , running  on a CentOS (Linux) Operating System, to achieve the goal.
 
-__note__: Scanning 65353 port will take considerable time and compute. For the sake of brevity the solution described herein will  be limited to the set of the top-100 well known ports. 
+__note__: Scanning 65353 port will take considerable time and compute. For the sake of brevity the solution described herein will  be limited to the set of the top-100 well known ports.
 
 
 ### Pre-conditions:
@@ -87,7 +87,7 @@ Available nsock engines: epoll poll select
 
 1. cd /tmp
 
-2. git clone https://github.com/jetweston/SecDevChallenge.git
+2.  git clone https://github.com/jetweston/SecDevChallenge.git
 
 ```
  [joseph@effexor tmp]$ git clone https://github.com/jetweston/SecDevChallenge.git
@@ -96,10 +96,10 @@ Available nsock engines: epoll poll select
  remote: Compressing objects: 100% (81/81), done.
  remote: Total 91 (delta 37), reused 4 (delta 2), pack-reused 0
  Unpacking objects: 100% (91/91), done.
- 
  ```
 
  3. cd SecDevChallenge
+
 
  4. [SecDevChallenge]$ ansible-playbook portscan.yaml
 
@@ -156,7 +156,6 @@ ok: [localhost] => {
 PLAY RECAP ********************************************************************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0  
 
-
 ```
 
 
@@ -164,7 +163,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 
 ### Post-Implementation-Validation (PIV)
 
-1.  Further to an ansible playbook variable dump to STDOUT, for each host defined in /etc/ansible/hosts an scan output will be produced and stored in  /tmp  in the format _{inventory_hostname}_scan.txt__:
+1.  Further to an ansible playbook variable dump to STDOUT, for each host defined in /etc/ansible/hosts an scan output will be produced and stored in  /tmp  in the format __{inventory_hostname}_scan.txt__:
 
 
 localhost_scan.txt
