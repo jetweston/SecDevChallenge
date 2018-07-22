@@ -64,20 +64,26 @@ Ports 49152 to 65535 are Public Ports.
 
 If the execution was successful, futher to an ansible play variable dump to STDOUT, a log file for each host in /etc/ansible/hoss is saved to /tmp/ in the format {inventory_hostname}_scan.txt:
 
-Sample: 
 
-SecDevChallenge joseph$ more */private/tmp/localhost_scan.txt*
+[joseph@effexor SecDevChallenge]$ ls -la
 
-Nmap 7.70 scan initiated Sat Jul 21 16:27:01 2018 as: nmap -F -oN /tmp/localhost_scan.txt localhost
+# Nmap 6.40 scan initiated Sun Jul 22 06:10:38 2018 as: nmap -F -oN /tmp/localhost_scan.txt localhost
 Nmap scan report for localhost (127.0.0.1)
-Host is up (0.00046s latency).
-Other addresses for localhost (not scanned): ::1
-Not shown: 95 closed ports
-PORT     STATE SERVICE
-22/tcp   open  ssh
-80/tcp   open  http
-443/tcp  open  https
-631/tcp  open  ipp
-5900/tcp open  vnc
+Host is up (0.00031s latency).
+Other addresses for localhost (not scanned): 127.0.0.1
+Not shown: 91 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+25/tcp    open  smtp
+80/tcp    open  http
+88/tcp    open  kerberos-sec
+111/tcp   open  rpcbind
+389/tcp   open  ldap
+631/tcp   open  ipp
+3306/tcp  open  mysql
+10000/tcp open  snet-sensor-mgmt
+
+
+# Nmap done at Sun Jul 22 06:10:38 2018 -- 1 IP address (1 host up) scanned in 0.03 seconds
 
  
