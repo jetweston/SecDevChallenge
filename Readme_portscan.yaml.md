@@ -87,7 +87,7 @@ Available nsock engines: epoll poll select
 
 1. cd /tmp
 
-2.  git clone https://github.com/jetweston/SecDevChallenge.git
+2. git clone https://github.com/jetweston/SecDevChallenge.git
 
 ```
  [joseph@effexor tmp]$ git clone https://github.com/jetweston/SecDevChallenge.git
@@ -96,10 +96,10 @@ Available nsock engines: epoll poll select
  remote: Compressing objects: 100% (81/81), done.
  remote: Total 91 (delta 37), reused 4 (delta 2), pack-reused 0
  Unpacking objects: 100% (91/91), done.
+ 
  ```
 
  3. cd SecDevChallenge
-
 
  4. [SecDevChallenge]$ ansible-playbook portscan.yaml
 
@@ -155,6 +155,7 @@ ok: [localhost] => {
 
 PLAY RECAP ********************************************************************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0  
+
 
 ```
 
