@@ -12,11 +12,12 @@ Ports 49152 to 65535 are Public Ports.
 ### Pre-conditions:
 
 
-- Linux effexor.coolmedia.ca 3.10.0-693.11.1.el7.x86_64 #1 SMP Mon Dec 4 23:52:40 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+- Linux 3.10.0-693.11.1.el7.x86_64 #1 SMP Mon Dec 4 23:52:40 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 
  - install nmap package: 
+    - yum install nmap
  
-   anax:SecDevChallenge joseph$ brew install nmap
+  
 
 - Ansible: 
 
@@ -65,7 +66,7 @@ If the execution was successful, futher to an ansible play variable dump to STDO
 
 Sample: 
 
-xanax:SecDevChallenge joseph$ more */private/tmp/localhost_scan.txt*
+SecDevChallenge joseph$ more */private/tmp/localhost_scan.txt*
 
 Nmap 7.70 scan initiated Sat Jul 21 16:27:01 2018 as: nmap -F -oN /tmp/localhost_scan.txt localhost
 Nmap scan report for localhost (127.0.0.1)
