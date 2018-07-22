@@ -12,27 +12,26 @@ Ports 49152 to 65535 are Public Ports.
 ### Pre-conditions:
 
 
-- Operating System: Darwin xanax.local 17.7.0 Darwin Kernel Version 17.7.0: Thu Jun 21 22:53:14 PDT 2018; root:xnu-4570.71.2~1/RELEASE_X86_64 x86_64
+- Linux effexor.coolmedia.ca 3.10.0-693.11.1.el7.x86_64 #1 SMP Mon Dec 4 23:52:40 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 
-- HomeBrew MacOSX Package Manager:
- - Install Homebrew: 
- 
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   
  - install nmap package: 
  
    anax:SecDevChallenge joseph$ brew install nmap
 
 - Ansible: 
 
-  version 2.3.1.0
-  python version = 2.7.13 (default, Dec 18 2016, 07:03:39) [GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)]
+  ansible 2.4.2.0
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/joseph/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.5 (default, Aug  4 2017, 00:39:18) [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
   
+ - Ansible Inventory: 
   
- - Ansible Inventory: /etc/ansivle/hosts
+   /etc/ansivle/hosts
    
-   - xanax:SecDevChallenge joseph$ more /etc/ansible/hosts
-
+  
    [local]
    localhost ansible_connection=local
 
@@ -42,12 +41,14 @@ Ports 49152 to 65535 are Public Ports.
    [gateway]
    192.168.1.1  ansible_connection=local
   
- - Nmap 7.70 ( https://nmap.org )
+ - Nmap:
  
-    For the sake of brevity we will use 'nmap -F' which scans the top 100 most common ports 
-    Use 'nmap -p- ' to scannal all 65535 ports nsise scan.
-  
-  
+  Nmap version 6.40 ( http://nmap.org )
+  Platform: x86_64-redhat-linux-gnu
+  Compiled with: nmap-liblua-5.2.2 openssl-1.0.2k libpcre-8.32 libpcap-1.5.3 nmap-libdnet-1.12 ipv6
+
+ For the sake of brevity we will use 'nmap -F' which scans the top 100 most common ports 
+ Use 'nmap -p- ' to scannal all 65535 ports nsise scan.
  
   
  ### Execution of the attack
