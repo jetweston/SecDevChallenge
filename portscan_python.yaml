@@ -2,8 +2,21 @@
 - hosts: all
   gather_facts: False
   tasks:
-    - name: call python script 'portscan.py'  using Anisible commnd module
-      command: python3 portscan.py {{inventory_hostname}}
+    - name: install required packages
+      yum: name={{ item }} state=present
+      with_items:
+             -  nmap
+             -  python
+
+    - name: install the Pythson package, force upgrade
+      pip: name={{ item }}
+      with_items: 
+           - pip
+         
+    - set_fact: date="{{lookup('pipe','date +%Y%m%d%H%M%S')}}"
+    - debug: var=date
+    - name: Run NMAP using Anisible commnd module
+      command: /usr/local/bin/python3 /tmp/SecDevChallenge/portscan.py {{inventory_hostname}} 
       register: output
     - debug:
         var: output
