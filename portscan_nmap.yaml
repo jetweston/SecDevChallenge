@@ -1,0 +1,18 @@
+---
+- hosts: all
+  gather_facts: False
+  tasks:
+    - name: install required packages
+      yum: name={{ item }} state=present
+      with_items:
+             -  nmap
+             -  python
+
+    - set_fact: date="{{lookup('pipe','date +%Y%m%d%H%M%S')}}"
+    - debug: var=date
+    - name: Run NMAP using Anisible commnd module
+      command: nmap -F -oN /tmp/SecDevChallenge/scans/{{inventory_hostname}}.{{date}} {{inventory_hostname}}
+      register: output
+    - debug:
+        var: output
+
