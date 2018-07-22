@@ -35,7 +35,8 @@ version info:
 
 [joseph@effexor SecDevChallenge]$ more /etc/redhat-release
 CentOS Linux release 7.4.1708 (Core)
-Linux 3.10.0-693.11.1.el7.x86_64 #1 SMP Mon Dec 4 23:52:40 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux```
+Linux 3.10.0-693.11.1.el7.x86_64 #1 SMP Mon Dec 4 23:52:40 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+```
 
 
 - __Ansible__: (packages install: yum install ansible)
