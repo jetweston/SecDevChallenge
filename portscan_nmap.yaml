@@ -8,6 +8,11 @@
              -  nmap
              -  python
 
+    - name: install the Python package, force upgrade
+      pip: name={{ item }}
+      with_items:
+           - pip
+
     - set_fact: date="{{lookup('pipe','date +%Y%m%d%H%M%S')}}"
     - debug: var=date
     - name: Run NMAP using Anisible commnd module
@@ -15,4 +20,3 @@
       register: output
     - debug:
         var: output
-
